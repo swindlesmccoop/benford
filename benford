@@ -1,0 +1,40 @@
+#!/bin/bash
+clear
+
+#strip all numbers except for the first through entire dataset and remove all 0s
+cut -c 1 "$1" | sed "s/0//g" > /tmp/benford.txt
+
+#count and print number of values
+echo "#######################"
+printf "# Dataset size: "
+cat /tmp/benford.txt | wc -l
+echo "#######################"
+
+#find quantities of each number 1 to 9
+echo "Quantity of 1:"
+grep "1" /tmp/benford.txt | wc -l
+echo ""
+echo "Quantity of 2:"
+grep "2" /tmp/benford.txt | wc -l
+echo ""
+echo "Quantity of 3:"
+grep "3" /tmp/benford.txt | wc -l
+echo ""
+echo "Quantity of 4:"
+grep "4" /tmp/benford.txt | wc -l
+echo ""
+echo "Quantity of 5:"
+grep "5" /tmp/benford.txt | wc -l
+echo ""
+echo "Quantity of 6:"
+grep "6" /tmp/benford.txt | wc -l
+echo ""
+echo "Quantity of 7:"
+grep "7" /tmp/benford.txt | wc -l
+echo ""
+echo "Quantity of 8:"
+grep "8" /tmp/benford.txt | wc -l
+echo ""
+echo "Quantity of 9:"
+grep "9" /tmp/benford.txt | wc -l
+echo "#######################"
