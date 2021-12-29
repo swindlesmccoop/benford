@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function benford {
+function ben {
 	clear
 	#strip all numbers except for the first through entire dataset and remove all 0s
 	cut -c 1 "$1" | sed "s/0//g" > /tmp/benford.txt
@@ -51,5 +51,5 @@ if [ $# -eq 0 ]; then ben_help; fi
 case "$1" in
 	-h) ben_help ;;
 	--help) ben_help ;;
-	*) benford "$@" ;;
+	*) ben "$@" ;;
 esac
