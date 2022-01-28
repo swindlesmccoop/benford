@@ -1,47 +1,47 @@
-#!/bin/bash
+#!/bin/sh
 
-function ben {
+ben () {
 	clear
 	#strip all numbers except for the first through entire dataset and remove all 0s
-	cut -c 1 "$1" | sed "s/0//g" > /tmp/benford.txt
+	cut -c 1 "$1" | sed "s/0//g" > "$HOME"/.local/tmp/benford.txt
 	
 	#count and print number of values
 	echo "#######################"
 	printf "# Dataset size: "
-	cat /tmp/benford.txt | wc -l
+	cat "$HOME"/.local/tmp/benford.txt
 	echo "#######################"
 	
 	#find quantities of each number 1 to 9
 	echo "Quantity of 1:"
-	grep "1" /tmp/benford.txt | wc -l
+	grep -c "1" "$HOME"/.local/tmp/benford.txt
 	echo ""
 	echo "Quantity of 2:"
-	grep "2" /tmp/benford.txt | wc -l
+	grep -c "2" "$HOME"/.local/tmp/benford.txt
 	echo ""
 	echo "Quantity of 3:"
-	grep "3" /tmp/benford.txt | wc -l
+	grep -c "3" "$HOME"/.local/tmp/benford.txt
 	echo ""
 	echo "Quantity of 4:"
-	grep "4" /tmp/benford.txt | wc -l
+	grep -c "4" "$HOME"/.local/tmp/benford.txt
 	echo ""
 	echo "Quantity of 5:"
-	grep "5" /tmp/benford.txt | wc -l
+	grep -c "5" "$HOME"/.local/tmp/benford.txt
 	echo ""
 	echo "Quantity of 6:"
-	grep "6" /tmp/benford.txt | wc -l
+	grep -c "6" "$HOME"/.local/tmp/benford.txt
 	echo ""
 	echo "Quantity of 7:"
-	grep "7" /tmp/benford.txt | wc -l
+	grep -c "7" "$HOME"/.local/tmp/benford.txt
 	echo ""
 	echo "Quantity of 8:"
-	grep "8" /tmp/benford.txt | wc -l
+	grep -c "8" "$HOME"/.local/tmp/benford.txt
 	echo ""
 	echo "Quantity of 9:"
-	grep "9" /tmp/benford.txt | wc -l
+	grep -c "9" "$HOME"/.local/tmp/benford.txt
 	echo "#######################"
 }
 
-function ben_help {
+ben_help () {
 	printf "Benford's Law Tester by swindlesmccoop\n\nUsage: benford [-h] [dataset]\n\n[dataset]: Prints data for [dataset]\n-h. --help: Display this help message\n" && exit 1
 }
 
