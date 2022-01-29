@@ -8,7 +8,7 @@ ben () {
 	#count and print number of values
 	echo "#######################"
 	printf "# Dataset size: "
-	cat "$HOME"/.local/tmp/benford.txt
+	cat "$HOME"/.local/tmp/benford.txt | wc -l
 	echo "#######################"
 	
 	#find quantities of each number 1 to 9
