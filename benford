@@ -6,10 +6,10 @@ ben () {
 	cut -c 1 "$1" | sed "s/0//g" > "$HOME"/.local/tmp/benford.txt
 	
 	#count and print number of values
-	echo "#######################"
-	printf "# Dataset size: "
+	echo "##################"
+	printf "Dataset size: "
 	cat "$HOME"/.local/tmp/benford.txt | wc -l
-	echo "#######################"
+	echo "##################"
 	
 	#find quantities of each number 1 to 9
 	echo "Quantity of 1:"
@@ -38,16 +38,21 @@ ben () {
 	echo ""
 	echo "Quantity of 9:"
 	grep -c "9" "$HOME"/.local/tmp/benford.txt
-	echo "#######################"
+	echo "##################"
 }
 
 ben_help () {
-	printf "Benford's Law Tester by swindlesmccoop\n\nUsage: benford [-h] [dataset]\n\n[dataset]: Prints data for [dataset]\n-h. --help: Display this help message\n" && exit 1
+	printf "Benford's Law Tester by swindlesmccoop
+	
+Usage: benford [-h] [dataset]
+	
+[dataset]: Prints data for [dataset]
+-h. --help: Display this help message
+" && exit 1
 }
 
 #if no parameters supplied, print help msg
-if [ $# -eq 0 ]; then ben_help; fi
-
+[ -z $1 ] && ben_help
 case "$1" in
 	-h) ben_help ;;
 	--help) ben_help ;;
